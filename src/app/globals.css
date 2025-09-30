@@ -16,7 +16,7 @@ html, body {
         background:
             /* soft image underlay */
                 linear-gradient(180deg, rgba(10,10,11,0.85), rgba(10,10,11,0.85)),
-                url('/forge-workbench.jpg') center / cover no-repeat fixed,
+                url('public/forge-workbench.jpg') center / cover no-repeat fixed,
                     /* radial accent glows on top of image */
                 radial-gradient(1200px 600px at 20% 0%, rgba(255,120,40,0.12), transparent 60%),
                 radial-gradient(900px 500px at 80% 10%, rgba(80,160,255,0.10), transparent 55%),
