@@ -3,12 +3,12 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Forged Preview",
+  title: "Forge Preview",
   description: "A tiny interactive tease of PCForge forged cards.",
   // ↓ so social images resolve to your real domain
   metadataBase: new URL("https://pcforge.pages.dev"),
   openGraph: {
-    title: "Forged Preview",
+    title: "Forge Preview",
     description: "Flip the forged cards. Tell us what you think.",
     images: [{ url: "/og.jpg", width: 1200, height: 630 }],
   },
