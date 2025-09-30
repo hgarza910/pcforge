@@ -1,0 +1,7 @@
+/* Keep background transparent so the Next shell shows through if you want */
+html, body {
+    margin: 0;
+    background: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

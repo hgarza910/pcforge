@@ -5,17 +5,21 @@
 :root { color-scheme: dark; }
 
 html, body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
     @apply bg-black text-white;
 }
 
 @layer utilities {
-  .bg-forge {
-    background:
-            radial-gradient(1200px 600px at 20% 0%, rgba(255,120,40,0.12), transparent 60%),
-            radial-gradient(900px 500px at 80% 10%, rgba(80,160,255,0.10), transparent 55%),
-            linear-gradient(180deg, #0a0a0b 0%, #0a0a0b 60%, #050506 100%);
-  }
+    .bg-forge {
+        background:
+            /* soft image underlay */
+                linear-gradient(180deg, rgba(10,10,11,0.85), rgba(10,10,11,0.85)),
+                url('/forge-workbench.jpg') center / cover no-repeat fixed,
+                    /* radial accent glows on top of image */
+                radial-gradient(1200px 600px at 20% 0%, rgba(255,120,40,0.12), transparent 60%),
+                radial-gradient(900px 500px at 80% 10%, rgba(80,160,255,0.10), transparent 55%),
+                linear-gradient(180deg, #0A0A0B 0%, #0A0A0B 60%, #050506 100%);
+    }
 }
