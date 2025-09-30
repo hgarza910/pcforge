@@ -17,14 +17,35 @@ export type ForgedCardData = {
 
 type FlipCardProps = {
   data: ForgedCardData;
-  /** Optional: start in flipped state */
   defaultFlipped?: boolean;
 };
 
 const preserve3d: CSSProperties = { transformStyle: "preserve-3d" };
 const perspective: CSSProperties = { perspective: 1200 };
-
 const flipSpring: Transition = { type: "spring", stiffness: 260, damping: 22 };
+
+/** Merge stored UTMs into a destination URL (keeps existing params). */
+function withUTM(dest: string, cardId?: string) {
+  try {
+    // SSR safety
+    if (typeof window === "undefined") return dest;
+
+    const u = new URL(dest, window.location.origin);
+    const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
+
+    utmKeys.forEach((k) => {
+      const v = localStorage.getItem(k);
+      if (v && !u.searchParams.get(k)) u.searchParams.set(k, v);
+    });
+
+    // optional: tag which card sent them
+    if (cardId && !u.searchParams.get("ref_card")) u.searchParams.set("ref_card", cardId);
+
+    return u.toString();
+  } catch {
+    return dest; // if URL parsing fails, just return original
+  }
+}
 
 export default function FlipCard({ data, defaultFlipped = false }: FlipCardProps) {
   const [flipped, setFlipped] = useState<boolean>(defaultFlipped);
@@ -33,12 +54,10 @@ export default function FlipCard({ data, defaultFlipped = false }: FlipCardProps
 
   const onKeyDown = useCallback(
       (e: React.KeyboardEvent<HTMLDivElement>) => {
-        // Space / Enter toggles
         if (e.key === " " || e.key === "Enter") {
           e.preventDefault();
           toggle();
         }
-        // Escape always returns to front
         if (e.key === "Escape") setFlipped(false);
       },
       [toggle]
@@ -46,7 +65,10 @@ export default function FlipCard({ data, defaultFlipped = false }: FlipCardProps
 
   return (
       <div
-          className="relative h-[440px] select-none"
+          className="
+        relative select-none
+        h-[68svh] sm:h-[60svh] min-h-[360px] max-h-[560px]
+      "
           style={perspective}
           onClick={toggle}
           onKeyDown={onKeyDown}
@@ -68,17 +90,20 @@ export default function FlipCard({ data, defaultFlipped = false }: FlipCardProps
                 alt={`${data.title} front`}
                 fill
                 priority
-                sizes="(max-width:768px) 90vw, 40vw"
+                sizes="(max-width:640px) 92vw, (max-width:1024px) 60vw, 40vw"
                 className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-            <div className="absolute left-4 bottom-4 space-y-1">
-              <div className="text-sm uppercase tracking-widest text-white/70">{data.tier}</div>
-              <div className="text-xl font-semibold">{data.title}</div>
+            <div
+                className="absolute left-4 bottom-4 right-4 space-y-1
+                       pb-[calc(env(safe-area-inset-bottom)+0px)]"
+            >
+              <div className="text-xs sm:text-sm uppercase tracking-widest text-white/70">{data.tier}</div>
+              <div className="text-lg sm:text-xl font-semibold">{data.title}</div>
               <div className="text-emerald-300 font-medium">{data.price}</div>
 
               {data.tags?.length ? (
-                  <div className="flex gap-2 pt-2">
+                  <div className="flex flex-wrap gap-2 pt-2">
                     {data.tags.map((t) => (
                         <span key={t} className="text-[10px] px-2 py-1 rounded-full bg-white/10">
                     {t}
@@ -99,21 +124,29 @@ export default function FlipCard({ data, defaultFlipped = false }: FlipCardProps
                 src={data.backImage}
                 alt={`${data.title} back`}
                 fill
-                sizes="(max-width:768px) 90vw, 40vw"
+                sizes="(max-width:640px) 92vw, (max-width:1024px) 60vw, 40vw"
                 className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute left-4 bottom-4 flex items-center gap-3">
+            <div
+                className="absolute left-4 right-4 bottom-4 flex items-center gap-3
+                       pb-[calc(env(safe-area-inset-bottom)+0px)]"
+            >
               <a
-                  href={data.qrHref}
+                  href={withUTM(data.qrHref, data.id)}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-lg bg-white/10 px-3 py-2 text-sm backdrop-blur hover:bg-white/20"
+                  className="
+                inline-flex items-center justify-center
+                rounded-lg bg-white/10 px-4 py-3 text-base
+                min-h-11 min-w-28 text-center
+                backdrop-blur hover:bg-white/20 active:scale-[0.99] transition
+              "
                   onClick={(e) => e.stopPropagation()}
               >
                 Open Build
               </a>
-              <span className="text-xs text-white/60">flip to front ↻</span>
+              <span className="text-xs sm:text-sm text-white/60">flip to front ↻</span>
             </div>
           </div>
         </motion.div>

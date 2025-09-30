@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root { color-scheme: dark; }
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
 @layer utilities {
   .bg-forge {
     background:
-      radial-gradient(1200px 600px at 20% 0%, rgba(255,120,40,0.12), transparent 60%),
-      radial-gradient(900px 500px at 80% 10%, rgba(80,160,255,0.10), transparent 55%),
-      linear-gradient(180deg, #0a0a0b 0%, #0a0a0b 60%, #050506 100%);
+            radial-gradient(1200px 600px at 20% 0%, rgba(255,120,40,0.12), transparent 60%),
+            radial-gradient(900px 500px at 80% 10%, rgba(80,160,255,0.10), transparent 55%),
+            linear-gradient(180deg, #0a0a0b 0%, #0a0a0b 60%, #050506 100%);
   }
 }
