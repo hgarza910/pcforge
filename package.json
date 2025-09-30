@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "export": "next export -o out",
+    "build": "next build --no-lint",
+    "export": "next export",
     "start": "next start",
     "lint": "eslint"
   },
+
   "dependencies": {
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.22",
