@@ -3,9 +3,10 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "4991507ab04e2859463f576ca7df43d5",
-"assets/AssetManifest.bin.json": "753527ad4a2b6f74e6f2c7faf891565b",
-"assets/AssetManifest.json": "42a7688db3164f6f5c14e97ea8523a2a",
+const RESOURCES = {"assets/AssetManifest.bin": "a3e8febfd2440b20d52f745125449a58",
+"assets/AssetManifest.bin.json": "3a010aae78e772a4d35a0ceac5358b8d",
+"assets/AssetManifest.json": "fb736c897d2037f00243983ed3f73c3c",
+"assets/assets/backgrounds/background_1.png": "7c3b2587a591b15d2398f66de20de4e6",
 "assets/assets/plain_card_textures/texture_6.png": "4afd4945e7c6c7c7173dccd06ebad2e2",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
 "assets/fonts/MaterialIcons-Regular.otf": "9423f44e551ba04f620d16819ed36ab7",
@@ -24,10 +25,10 @@ const RESOURCES = {"assets/AssetManifest.bin": "4991507ab04e2859463f576ca7df43d5
 "canvaskit/skwasm_heavy.js.symbols": "3c01ec03b5de6d62c34e17014d1decd3",
 "canvaskit/skwasm_heavy.wasm": "8034ad26ba2485dab2fd49bdd786837b",
 "flutter.js": "888483df48293866f9f41d3d9274a779",
-"flutter_bootstrap.js": "002929e0e0a143da7a3a358402fc61d0",
+"flutter_bootstrap.js": "eaf0b03198c151c468564f0e0b55fd58",
 "index.html": "f46b0a971de7ecd33ee76b6c0640c4e5",
 "/": "f46b0a971de7ecd33ee76b6c0640c4e5",
-"main.dart.js": "6730818feb07cb286e6159f257de4321",
+"main.dart.js": "a5d668022fa5df59b0813e9e40787842",
 "styles.css": "4e5e8853325af6d45456a3de905da6b6",
 "version.json": "aaa52b13abc93d87ae7139a3d9dadb50"};
 // The application shell files that are downloaded before a service worker can
