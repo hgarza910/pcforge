@@ -1,1 +1,0 @@
- C:\\Users\\Junior\\IdeaProjects\\forge_card_web\\build\\web\\styles.css:  C:\\Users\\Junior\\IdeaProjects\\forge_card_web\\web\\index.html C:\\Users\\Junior\\IdeaProjects\\forge_card_web\\web\\styles.css
