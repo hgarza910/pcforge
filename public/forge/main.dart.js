@@ -77228,7 +77228,7 @@ p=1
 case 3:if(!(p<=6)){s=5
 break}i=j
 s=6
-return A.T(l.$1("assets/gallery/my_rig/img_"+p+".png"),$async$lG)
+return A.T(l.$1("assets/gallery/my_rig/img_"+p+".jpeg"),$async$lG)
 case 6:i.push(b)
 case 4:++p
 s=3
@@ -77238,7 +77238,7 @@ p=1
 case 7:if(!(p<=6)){s=9
 break}i=o
 s=10
-return A.T(l.$1("assets/gallery/my_rig/img_"+p+".png"),$async$lG)
+return A.T(l.$1("assets/gallery/my_rig/img_"+p+".jpeg"),$async$lG)
 case 10:i.push(b)
 case 8:++p
 s=7
@@ -77248,7 +77248,7 @@ p=1
 case 11:if(!(p<=6)){s=13
 break}i=n
 s=14
-return A.T(l.$1("assets/gallery/my_rig/img_"+p+".png"),$async$lG)
+return A.T(l.$1("assets/gallery/my_rig/img_"+p+".jpeg"),$async$lG)
 case 14:i.push(b)
 case 12:++p
 s=11
@@ -77258,7 +77258,7 @@ p=1
 case 15:if(!(p<=6)){s=17
 break}i=m
 s=18
-return A.T(l.$1("assets/gallery/my_rig/img_"+p+".png"),$async$lG)
+return A.T(l.$1("assets/gallery/my_rig/img_"+p+".jpeg"),$async$lG)
 case 18:i.push(b)
 case 16:++p
 s=15
@@ -77268,7 +77268,7 @@ p=1
 case 19:if(!(p<=6)){s=21
 break}i=k
 s=22
-return A.T(l.$1("assets/gallery/my_rig/img_"+p+".png"),$async$lG)
+return A.T(l.$1("assets/gallery/my_rig/img_"+p+".jpeg"),$async$lG)
 case 22:i.push(b)
 case 20:++p
 s=19
